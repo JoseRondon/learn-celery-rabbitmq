@@ -6,6 +6,10 @@ powerful queue patterns using RabbitMQ as the message broker.
 
 ## System requirements
 
+Create conda environment
+```bash
+conda env create -f environment.yml
+```
 This repository is Codespaces ready, so RabbitMQ and the Flask Python
 application will work out of the box. If you are learning how these all work
 together, it is the **easiest way to get started** without feeling overwhelmed
@@ -34,12 +38,14 @@ You should get output that displays the RabbitMQ process.
 Start Celery by doing:
 
 ```bash
+conda activate demo_celery
+cd app
 celery -A make_celery worker --loglevel INFO
 ```
 
 You should see in the output that the `async_send_email` task is registered:
 
-```
+```bash
 [tasks]
   . main.async_parse_exploits
   . main.async_send_email
@@ -47,9 +53,10 @@ You should see in the output that the `async_send_email` task is registered:
 
 ## Start Flask
 
-Start the Flask application with the following command:
+Start the Flask application from another terminal with the following commands:
 
 ```bash
+conda activate demo_celery
 flask --app app.main:flask_app run --reload
 ```
 

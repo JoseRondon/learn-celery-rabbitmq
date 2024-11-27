@@ -1,0 +1,15 @@
+name: demo_celery
+
+channels:
+  - conda
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - pip=24.0
+  - pip:
+    - Flask==3.0.1
+    - celery==5.3.6
+    - beautifulsoup4==4.12.3
+    - requests==2.31.0
